@@ -1,0 +1,87 @@
+// Basic normalization:
+*,
+::before,
+::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+// Globals:
+$theme-color-1: rgb(11, 243, 69);
+$theme-color-bg: rgb(44, 44, 44);
+
+// Style:
+html {
+  background-image: url("../../images/img2_green_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+#root {
+  background-color: $theme-color-bg;
+  margin: 40px 100px;
+}
+
+header,
+footer {
+  background-color: $theme-color-1;
+  color: $theme-color-bg;
+  padding: 5px;
+  font-weight: bold;
+}
+
+header {
+  position: relative;
+  top: 20px;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+main {
+  padding: 40px 0px;
+  color: $theme-color-1;
+  text-align: center;
+}
+
+footer {
+  position: relative;
+  bottom: 20px;
+  text-align: right;
+  font-size: 1.25rem;
+}
+
+#title {
+  font-size: 1.75rem;
+}
+
+#description {
+  font-size: 1.25rem;
+}
+
+.svg-graph {
+  // border: 2px solid white;
+  margin: 20px 15px;
+  // padding-left: 40px;
+}
+
+#tooltip {
+  position: absolute;
+  max-width: 150px;
+  min-width: 150px;
+  word-wrap: break-word;
+  display: none;
+  padding: 12px;
+  font-size: 16px;
+  background: $theme-color-1;
+  border-radius: 10px;
+  pointer-events: none;
+  color: $theme-color-bg;
+}
+
+#legend {
+  stroke: none;
+  stroke-width: 1px;
+}
