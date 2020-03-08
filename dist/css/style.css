@@ -67,13 +67,18 @@ footer {
   display: none;
   padding: 12px;
   font-size: 16px;
-  background: #242424;
+  background: #18fa90;
   border-radius: 10px;
   pointer-events: none;
-  color: #18fa90;
+  color: #242424;
 }
 
 #legend {
   stroke: none;
   stroke-width: 1px;
+}
+
+tspan {
+  cursor: default;
+  font-size: 0.75rem;
 }

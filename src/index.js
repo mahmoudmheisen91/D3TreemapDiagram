@@ -28,6 +28,7 @@ function draw(data) {
   let h = height - margin.top - margin.bottom;
 
   let color = d3.scaleOrdinal(d3.schemeCategory10);
+  let toolTip = d3.select("#tooltip");
 
   // Create SVG:
   let svg = d3
@@ -68,5 +69,31 @@ function draw(data) {
     .attr("data-value", d => d.data.value)
     .attr("width", d => d.x1 - d.x0)
     .attr("height", d => d.y1 - d.y0)
-    .attr("fill", d => color(d.data.category));
+    .attr("fill", d => color(d.data.category))
+    .on("mousemove", d => {
+      toolTip
+        .style("display", "block")
+        .attr("data-value", () => d.data.value)
+        .html(() => {
+          return (
+            "Category: " + d.data.category + "<br/>" + "Value: " + d.data.value
+          );
+        })
+        .style("left", d3.event.pageX - 75 + "px")
+        .style("top", d3.event.pageY + "px");
+    })
+    .on("mouseout", () => {
+      toolTip.style("display", "none");
+    });
+
+  // Text:
+  leaf
+    .append("text")
+    .selectAll("tspan")
+    .data(d => d.data.name.split(/(?=[A-Z][^A-Z])/g))
+    .enter()
+    .append("tspan")
+    .attr("x", 4)
+    .attr("y", (_, i) => 13 + i * 10)
+    .text(d => d);
 }

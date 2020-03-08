@@ -75,13 +75,18 @@ footer {
   display: none;
   padding: 12px;
   font-size: 16px;
-  background: $theme-color-1;
+  background: $theme-color-bg;
   border-radius: 10px;
   pointer-events: none;
-  color: $theme-color-bg;
+  color: $theme-color-1;
 }
 
 #legend {
   stroke: none;
   stroke-width: 1px;
+}
+
+tspan {
+  cursor: default;
+  font-size: 0.75rem;
 }
