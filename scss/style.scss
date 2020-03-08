@@ -61,10 +61,15 @@ footer {
   font-size: 1.25rem;
 }
 
-.svg-graph {
+.svg-graph,
+#legend {
   //   border: 2px solid black;
   margin: 20px 50px;
-  // padding-left: 40px;
+}
+
+#legend {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 #tooltip {
@@ -86,7 +91,7 @@ footer {
   stroke-width: 1px;
 }
 
-tspan {
+.tile-text {
   cursor: default;
   font-size: 0.75rem;
 }

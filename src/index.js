@@ -73,12 +73,10 @@ function draw(data) {
     .on("mousemove", d => {
       toolTip
         .style("display", "block")
-        .attr("data-value", () => d.data.value)
-        .html(() => {
-          return (
-            "Category: " + d.data.category + "<br/>" + "Value: " + d.data.value
-          );
-        })
+        .attr("data-value", d.data.value)
+        .html(
+          "Category: " + d.data.category + "<br/>" + "Value: " + d.data.value
+        )
         .style("left", d3.event.pageX - 75 + "px")
         .style("top", d3.event.pageY + "px");
     })
@@ -87,13 +85,50 @@ function draw(data) {
     });
 
   // Text:
-  leaf
-    .append("text")
-    .selectAll("tspan")
-    .data(d => d.data.name.split(/(?=[A-Z][^A-Z])/g))
+  let text = leaf
+    .selectAll("g")
+    .data(d => d.data.name.split(/(?=[A-Z][^\s]{2})/g))
     .enter()
-    .append("tspan")
-    .attr("x", 4)
-    .attr("y", (_, i) => 13 + i * 10)
+    .append("text")
+    .attr("class", "tile-text")
+    .attr("x", 6)
+    .attr("y", (_, i) => 15 + i * 10)
+    .text(d => d);
+
+  // Legend:
+  var categories = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Animation",
+    "Family",
+    "Biography"
+  ];
+
+  var legendSVG = d3
+    .select("#legend")
+    .append("svg")
+    .attr("viewBox", [0, 0, w, 50])
+    .attr("preserveAspectRatio", "xMidYMid meet");
+
+  var legend = legendSVG
+    .selectAll("g")
+    .data(categories)
+    .enter()
+    .append("g")
+    .attr("transform", (_, i) => `translate(${i * 100}, ${20})`);
+
+  let legendRects = legend
+    .append("rect")
+    .attr("class", "legend-item")
+    .attr("width", 100)
+    .attr("height", 30)
+    .attr("fill", d => color(d));
+
+  let legendText = legend
+    .append("text")
+    .attr("x", 5)
+    .attr("y", 20)
     .text(d => d);
 }
