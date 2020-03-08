@@ -8,12 +8,12 @@
 }
 
 // Globals:
-$theme-color-1: rgb(11, 243, 69);
-$theme-color-bg: rgb(44, 44, 44);
+$theme-color-1: rgb(36, 36, 36);
+$theme-color-bg: rgb(24, 250, 144);
 
 // Style:
 html {
-  background-image: url("../../images/img2_green_bg.jpg");
+  background-image: url("../../images/img1_green_bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
@@ -21,8 +21,8 @@ html {
 }
 
 #root {
-  background-color: $theme-color-bg;
-  margin: 40px 100px;
+  //   background-color: $theme-color-bg;
+  margin: 40px 0px;
 }
 
 header,
@@ -62,8 +62,8 @@ footer {
 }
 
 .svg-graph {
-  // border: 2px solid white;
-  margin: 20px 15px;
+  //   border: 2px solid black;
+  margin: 20px 50px;
   // padding-left: 40px;
 }
 
